@@ -59,7 +59,7 @@ const getDictEmbed = (data: Dict): EmbedBuilder => {
 
   description += `Backlink: ${data.backlink}\n\n`;
 
-  const embed: EmbedBuilder = new EmbedBuilder().setColor(0xee3333).setTitle(`D3 Übersetztung für: ${data.s}`);
+  const embed: EmbedBuilder = new EmbedBuilder().setColor(0xee3333).setTitle(`D3 Übersetzung für: ${data.s}`);
   if (data.result) {
     const maxCount = Math.round(config.DICT_MAX_RESULTS);
     if (data.result.length > maxCount) {
