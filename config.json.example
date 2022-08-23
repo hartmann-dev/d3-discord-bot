@@ -1,6 +1,6 @@
 {
   "TOKEN": "",
-  "CLIENT_ID: "",
+  "CLIENT_ID": "",
   "REST_VERSION": "10",
   "D3_BASE_URL": "https://www.dnddeutsch.de",
   "D3_API_BASE_URL": "https://www.dnddeutsch.de/tools/json.php",
