@@ -76,6 +76,8 @@ const getDictEmbed = (data: Dict): EmbedBuilder => {
           { name: "Name EN", value: `${res.name_en}`, inline: true }
         )
         .addFields(
+          // ToDo Sinnvolle Anzeige für Typ?
+          { name: "Typ", value: `${res.type}`, inline: true },
           { name: "Quelle DE", value: `${res.src_de.book_long} (S. ${res.src_de.p})`, inline: true },
           { name: "Quelle EN", value: `${res.src_en.book_long} (S. ${res.src_en.p})`, inline: true }
         );
