@@ -33,7 +33,7 @@ Kopiere `config.json.example` nach `config.json` und passe die Werte an
   "REST_VERSION": "10",
   "D3_BASE_URL": "https://www.dnddeutsch.de",
   "D3_API_BASE_URL": "https://www.dnddeutsch.de/tools/json.php",
-  "D3_API_VERSION": "0.7"
+  "D3_API_VERSION": "0.7",
   "DICT_MAX_RESULTS": 3
 }
 ```
