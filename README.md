@@ -1,6 +1,7 @@
 # D3-DISCORD-BOT
 
 > **D3** ist ein Discord Bot um die API von **[dnddeutsch.de](https://www.dnddeutsch.de/api/)** zu verwenden.
+>
 > Aktuell befindet sich der Bot noch in Entwicklung und wird erweitert.
 
 ⚠️ **Verwendung auf eigene Gefahr**
@@ -28,7 +29,7 @@ Kopiere `config.json.example` nach `config.json` und passe die Werte an
 ```json
 {
   "TOKEN": "",
-  "CLIENT_ID: "",
+  "CLIENT_ID": "",
   "REST_VERSION": "10",
   "D3_BASE_URL": "https://www.dnddeutsch.de",
   "D3_API_BASE_URL": "https://www.dnddeutsch.de/tools/json.php",
@@ -38,6 +39,16 @@ Kopiere `config.json.example` nach `config.json` und passe die Werte an
 ```
 
 ## 🎂 Bot einladen
+
+Benötigte Rechte
+
+- Read Messages/View Channels
+- Send Messages
+- Manage Messages
+
+```
+https://discord.com/api/oauth2/authorize?client_id=CLIENT_ID&permissions=PERMISSIONS&scope=bot%20applications.commands
+```
 
 ## 🔥 Bot starten
 
