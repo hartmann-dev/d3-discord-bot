@@ -72,6 +72,9 @@ npm run dev
 - **it**: Ausrüstung berücksichtigen (Standard: True)
 - **misc**: Sonstiges berücksichtigen (Standard: True)
 
+![Bildschirmfoto 2022-08-23 um 12 25 46](https://user-images.githubusercontent.com/606560/186135518-b009745d-62f0-4fe7-a69f-747608705b58.png)
+
+
 ## 🗺 Roadmap
 
 - [ ] Hilfe
