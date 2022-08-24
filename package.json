@@ -1,6 +1,6 @@
 {
   "name": "d3-discord-bot",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Ein Discord Bot für https://www.dnddeutsch.de",
   "main": "index.ts",
   "engines": {
