@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { Monster } from "../../interfaces/d3/monster";
+import { Monster } from "../../interfaces/d3/Monster";
 import { D3BaseRequest } from "./BaseRequest";
 
 export class D3MonsterRequest extends D3BaseRequest {
