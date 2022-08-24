@@ -26,14 +26,23 @@ const execute = async (interaction: Interaction) => {
       if (!searchtext) return;
       await interaction.deferReply();
 
-      const options = {
-        withMagicItems: interaction.options.getBoolean("mi") ?? true,
-        withMonsters: interaction.options.getBoolean("mo") ?? true,
-        withSpells: interaction.options.getBoolean("sp") ?? true,
-        withItems: interaction.options.getBoolean("it") ?? true,
-        withMisc: interaction.options.getBoolean("misc") ?? true
+      const possibleOptions = {
+        withMagicItems: interaction.options.getBoolean("mi"),
+        withMonsters: interaction.options.getBoolean("mo"),
+        withSpells: interaction.options.getBoolean("sp"),
+        withItems: interaction.options.getBoolean("it"),
+        withMisc: interaction.options.getBoolean("misc")
       };
 
+      const isOptionSet = Object.values(possibleOptions).some((option) => option != null);
+
+      const options = {
+        withMagicItems: possibleOptions.withMagicItems || !isOptionSet,
+        withMonsters: possibleOptions.withMonsters || !isOptionSet,
+        withSpells: possibleOptions.withSpells || !isOptionSet,
+        withItems: possibleOptions.withItems || !isOptionSet,
+        withMisc: possibleOptions.withMisc || !isOptionSet
+      };
       const d3DictReq = new D3DictRequest(new URL(config.D3_API_BASE_URL), config.D3_API_VERSION, searchtext, options);
       const dictData = await d3DictReq.request();
 
