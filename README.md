@@ -89,6 +89,9 @@ npm run dev
 
 - **short**: Zeigt die Ergebnisse in verkürzter Form an (Standard: False)
 
+![Monster Preview](https://user-images.githubusercontent.com/606560/186379531-50626264-3023-433a-bf75-c85a6fe37dae.png)
+
+
 ## 🗺 Roadmap
 
 - [ ] Hilfe
