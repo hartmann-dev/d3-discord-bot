@@ -34,9 +34,18 @@ Kopiere `config.json.example` nach `config.json` und passe die Werte an
   "D3_BASE_URL": "https://www.dnddeutsch.de",
   "D3_API_BASE_URL": "https://www.dnddeutsch.de/tools/json.php",
   "D3_API_VERSION": "0.7",
-  "DICT_MAX_RESULTS": 3
+  "D3_DEFAULT_BACKLINK": "https://www.dnddeutsch.de",
+  "DICT_MAX_RESULTS": 3,
+  "MONSTER_MAX_RESULTS": 3
 }
 ```
+
+### Updates
+
+In Version 0.1.0 kamen folgende Keys dazu:
+
+- D3_DEFAULT_BACKLINK
+- MONSTER_MAX_RESULTS
 
 ## 🎂 Bot einladen
 
@@ -72,13 +81,18 @@ npm run dev
 - **it**: Ausrüstung berücksichtigen (Standard: True)
 - **misc**: Sonstiges berücksichtigen (Standard: True)
 
-![Bildschirmfoto 2022-08-23 um 22 17 51](https://user-images.githubusercontent.com/606560/186257596-af1cb7af-b2fd-4b2f-900b-0b7aa4933067.png)
+![Dict Preview](https://user-images.githubusercontent.com/606560/186257596-af1cb7af-b2fd-4b2f-900b-0b7aa4933067.png)
 
+### 😈 Monster
+
+`/d3 monster [name]`
+
+- **short**: Zeigt die Ergebnisse in verkürzter Form an (Standard: False)
 
 ## 🗺 Roadmap
 
 - [ ] Hilfe
 - [x] Übersetzung
-- [ ] Monster
+- [x] Monster
 - [ ] Schatzgenerator
 - [ ] ...
