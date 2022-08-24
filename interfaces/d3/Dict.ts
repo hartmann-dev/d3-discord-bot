@@ -9,7 +9,7 @@ type DictResultSrc = {
 
 type DictResultType = "monster";
 
-type DictResult = {
+export type DictResult = {
   name_de: string;
   name_de_ulisses: string | null;
   name_en: string;

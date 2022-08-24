@@ -81,7 +81,8 @@ npm run dev
 - **it**: Ausrüstung berücksichtigen (Standard: True)
 - **misc**: Sonstiges berücksichtigen (Standard: True)
 
-![Dict Preview](https://user-images.githubusercontent.com/606560/186257596-af1cb7af-b2fd-4b2f-900b-0b7aa4933067.png)
+
+![Dict Preview](https://user-images.githubusercontent.com/606560/186386167-4d671ad5-44e0-4c8a-8d0a-c83484cf5d45.png)
 
 ### 😈 Monster
 
