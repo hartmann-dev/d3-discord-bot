@@ -1,6 +1,6 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { EmbedBuilder, Interaction } from "discord.js";
-import { Dict } from "../interfaces/d3/Dict";
+import { Dict, DictResult } from "../interfaces/d3/Dict";
 import { Monster, MonsterList } from "../interfaces/d3/Monster";
 import { config } from "../utils/config";
 import { D3DictRequest } from "../utils/d3/DictRequest";
@@ -38,8 +38,8 @@ const execute = async (interaction: Interaction) => {
       const dictData = await d3DictReq.request();
 
       if (dictData) {
-        const embed = getDictEmbed(dictData);
-        await interaction.editReply({ embeds: [embed] });
+        const embeds = getDictEmbeds(dictData);
+        await interaction.editReply({ embeds: [...embeds] });
         return;
       }
       break;
@@ -62,7 +62,9 @@ const execute = async (interaction: Interaction) => {
   await interaction.editReply("Ein Fehler ist aufgetreten.");
 };
 
-const getDictEmbed = (data: Dict): EmbedBuilder => {
+const getDictEmbeds = (data: Dict): EmbedBuilder[] => {
+  const embeds: EmbedBuilder[] = [];
+
   let description = "";
   if (data.error) {
     description = "Ein Fehler ist aufgetreten:\n";
@@ -78,7 +80,7 @@ const getDictEmbed = (data: Dict): EmbedBuilder => {
 
   description += `Backlink: ${data.backlink}\n\n`;
 
-  const embed: EmbedBuilder = new EmbedBuilder().setColor(0xee3333).setTitle(`D3 Übersetzung für: ${data.s}`);
+  const titleEmbed: EmbedBuilder = new EmbedBuilder().setColor(0xee3333).setTitle(`D3 Übersetzung für: ${data.s}`);
   if (data.result) {
     const maxCount = Math.round(config.DICT_MAX_RESULTS);
     if (data.result.length > maxCount) {
@@ -86,29 +88,41 @@ const getDictEmbed = (data: Dict): EmbedBuilder => {
     }
 
     const slicedRes = data.result.slice(0, maxCount);
-
-    slicedRes.forEach((res) => {
-      embed
-        .addFields(
-          { name: "Name DE", value: `${res.name_de}`, inline: true },
-          { name: "Name DE (Ulisses)", value: `${res.name_de_ulisses ?? "\u200B"}`, inline: true },
-          { name: "Name EN", value: `${res.name_en}`, inline: true }
-        )
-        .addFields(
-          // ToDo Sinnvolle Anzeige für Typ?
-          { name: "Typ", value: `${res.type}`, inline: true },
-          { name: "Quelle DE", value: `${res.src_de.book_long} (S. ${res.src_de.p})`, inline: true },
-          { name: "Quelle EN", value: `${res.src_en.book_long} (S. ${res.src_en.p})`, inline: true }
-        );
-      if (res.src_en.srd) {
-        embed.addFields({ name: "5thSRD", value: `${config.D3_BASE_URL}${res.src_en.srd}` });
-      }
-      embed.addFields({ name: "\u200B", value: "\u200B" });
-    });
+    const dictResultEmbeds = getDictResultEmbeds(slicedRes);
+    embeds.push(...dictResultEmbeds);
   }
-  embed.setDescription(description);
+  titleEmbed.setDescription(description);
+  embeds.unshift(titleEmbed);
 
-  return embed;
+  return embeds;
+};
+
+const getDictResultEmbeds = (dict: DictResult[]): EmbedBuilder[] => {
+  const dictEmbeds: EmbedBuilder[] = [];
+
+  dict.forEach((res) => {
+    const dictEmbed: EmbedBuilder = new EmbedBuilder().setColor(0xee3333);
+
+    dictEmbed
+      .addFields(
+        { name: "Name DE", value: `${res.name_de}`, inline: true },
+        { name: "Name DE (Ulisses)", value: `${res.name_de_ulisses ?? "\u200B"}`, inline: true },
+        { name: "Name EN", value: `${res.name_en}`, inline: true }
+      )
+      .addFields(
+        // ToDo Sinnvolle Anzeige für Typ?
+        { name: "Typ", value: `${res.type}`, inline: true },
+        { name: "Quelle DE", value: `${res.src_de.book_long} (S. ${res.src_de.p})`, inline: true },
+        { name: "Quelle EN", value: `${res.src_en.book_long} (S. ${res.src_en.p})`, inline: true }
+      );
+    if (res.src_en.srd) {
+      dictEmbed.addFields({ name: "5thSRD", value: `${config.D3_BASE_URL}${res.src_en.srd}` });
+    }
+
+    dictEmbeds.push(dictEmbed);
+  });
+
+  return dictEmbeds;
 };
 
 const getMonsterEmbeds = (monsterName: string, data: Monster, short?: boolean): EmbedBuilder[] => {
