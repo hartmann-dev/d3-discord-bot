@@ -5,5 +5,7 @@
   "D3_BASE_URL": "https://www.dnddeutsch.de",
   "D3_API_BASE_URL": "https://www.dnddeutsch.de/tools/json.php",
   "D3_API_VERSION": "0.7",
-  "DICT_MAX_RESULTS": 3
+  "D3_DEFAULT_BACKLINK": "https://www.dnddeutsch.de",
+  "DICT_MAX_RESULTS": 3,
+  "MONSTER_MAX_RESULTS": 3
 }

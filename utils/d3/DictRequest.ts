@@ -1,14 +1,7 @@
 import axios from "axios";
 
 import { Dict } from "../../interfaces/d3/Dict";
-
-abstract class D3Request {
-  url: URL;
-  constructor(baseUrl: URL, version: string) {
-    this.url = new URL(baseUrl);
-    this.url.searchParams.set("apiv", version);
-  }
-}
+import { D3BaseRequest } from "./BaseRequest";
 
 type D3DictRequestOptions = {
   withMagicItems: boolean;
@@ -18,7 +11,7 @@ type D3DictRequestOptions = {
   withMisc: boolean;
 };
 
-export class D3DictRequest extends D3Request {
+export class D3DictRequest extends D3BaseRequest {
   static DICT_ON = "on";
   static DICT_OFF = "off";
   static DICT_COMMAND = {
