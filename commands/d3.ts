@@ -106,7 +106,11 @@ const getDictResultEmbeds = (dict: DictResult[]): EmbedBuilder[] => {
     dictEmbed
       .addFields(
         { name: "Name DE", value: `${res.name_de}`, inline: true },
-        { name: "Name DE (Ulisses)", value: `${res.name_de_ulisses ?? "\u200B"}`, inline: true },
+        {
+          name: `${res.name_de_ulisses ? "Name DE (Ulisses)" : "\u200B"}`,
+          value: `${res.name_de_ulisses ?? "\u200B"}`,
+          inline: true
+        },
         { name: "Name EN", value: `${res.name_en}`, inline: true }
       )
       .addFields(
