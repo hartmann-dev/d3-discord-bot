@@ -257,8 +257,8 @@ const getLootEmbeds = (data: Treasur): EmbedBuilder[] => {
       description.push(`**für ${data.ic} Monster mit HG ${data.crtier}**`);
     }
   }
+  description.push(`\nVault: [${data.vault}](https://www.dnddeutsch.de/schatzgenerator/?vault=${data.vault})`);
   description.push(`Backlink: ${data.backlink ?? config.D3_DEFAULT_BACKLINK}\n`);
-  description.push(`Vault: ${data.vault}\n`);
 
   if (data.coins) {
     description.push("**:coin: Münzen**");
