@@ -12,6 +12,9 @@ import lootSubCommand from "./subs/loot";
 import { D3TreasureRequest } from "../utils/d3/TreasurRequest";
 import { Treasur } from "../interfaces/d3/Treasur";
 
+/*https://discordjs.guide/popular-topics/embeds.html#embed-limits */
+const MAX_EMBEDS = 10;
+
 const slashCommand = new SlashCommandBuilder()
   .setName("d3")
   .setDescription("Verwendet die dnddeutsch.de API")
@@ -52,7 +55,9 @@ const execute = async (interaction: Interaction) => {
 
       if (dictData) {
         const embeds = getDictEmbeds(dictData);
-        await interaction.editReply({ embeds: [...embeds] });
+        const slicedEmbeds = sliceEmbeds(embeds);
+
+        await interaction.editReply({ embeds: [...slicedEmbeds] });
         return;
       }
       break;
@@ -66,7 +71,9 @@ const execute = async (interaction: Interaction) => {
       const monsterData = await d3MonsterReq.request();
       if (monsterData) {
         const embeds = getMonsterEmbeds(monsterName, monsterData, short);
-        await interaction.editReply({ embeds: [...embeds] });
+        const slicedEmbeds = sliceEmbeds(embeds);
+
+        if (slicedEmbeds.length) await interaction.editReply({ embeds: [...slicedEmbeds] });
         return;
       }
       break;
@@ -94,7 +101,9 @@ const execute = async (interaction: Interaction) => {
         const traesureData = await d3TreasureReq.request();
         if (traesureData) {
           const embeds = getLootEmbeds(traesureData);
-          await interaction.editReply({ embeds: [...embeds] });
+          const slicedEmbeds = sliceEmbeds(embeds);
+
+          await interaction.editReply({ embeds: [...slicedEmbeds] });
           return;
         }
         return;
@@ -319,6 +328,14 @@ const getLootEmbeds = (data: Treasur): EmbedBuilder[] => {
 
   lootEmbeds.unshift(embed);
   return lootEmbeds;
+};
+
+const sliceEmbeds = (embeds: EmbedBuilder[]): EmbedBuilder[] => {
+  if (embeds.length > MAX_EMBEDS) {
+    console.warn(`Auf Grund der Discord Beschränkungen sind nur maximal ${MAX_EMBEDS} Embeds möglich!`);
+    return embeds.slice(0, MAX_EMBEDS);
+  }
+  return embeds;
 };
 
 export default { slashCommand, execute };
