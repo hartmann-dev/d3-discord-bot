@@ -1,0 +1,34 @@
+🔎 **Übersetzung**
+
+`/d3 dict [suche]`
+
+Der D3 Übersetzer kennt alle magischen Gegenstände, Kreaturen und Zaubersprüche, die auch in den [Listenwerkzeugen](https://www.dnddeutsch.de/tag/liste/) enthalten sind, sowie sämtliche Ausrüstung aus dem Spielerhandbuch (PHB) und mehr als 1200 allgemeine Begriffe.
+
+*Optionen:*
+- **mi**: Magische Gegenstände berücksichtigen (Standard: True)
+- **mo**: Monster berücksichtigen (Standard: True)
+- **sp**: Zaubersprüche berücksichtigen (Standard: True)
+- **it**: Ausrüstung berücksichtigen (Standard: True)
+- **misc**: Sonstiges berücksichtigen (Standard: True)
+
+Sobald eine Option explizit auf True gesetzt wird, werden alle anderen Optionen die nicht bestimmt sind, auf False gesetzt.
+
+😈 **Monster**
+
+`/d3 monster [name]`
+
+Ähnlich der Suche mit mo=True nur mit zusätzlichen Informationen.
+
+*Optionen:*
+- **short**: Zeigt die Ergebnisse in verkürzter Form an (Standard: False)
+
+💰 **Schatzgenerator**
+
+`/d3 loot [hg] [anzahl]`
+
+Die Gruppe lootet einen nicht geplanten Ort oder hat den freundlichen NSC doch gekillt.
+Hiermit könnt ihr euch spontan eine Lootliste genieren lassen.
+
+*Optionen:*
+- **hg**: 0-4, 6-10. 11-16 oder 17-20 - Der Herausforderungsgrad der Monster bzw. des Horts
+- **anzahl**: Eine Ganzzahl oder das Wort "Hort" - Die Gruppenstärke der Monster oder ein ganzer Hort
