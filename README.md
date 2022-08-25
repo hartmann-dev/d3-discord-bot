@@ -88,9 +88,23 @@ npm run dev
 
 `/d3 monster [name]`
 
+#### Optionen:
+
 - **short**: Zeigt die Ergebnisse in verkürzter Form an (Standard: False)
 
 ![Monster Preview](https://user-images.githubusercontent.com/606560/186379531-50626264-3023-433a-bf75-c85a6fe37dae.png)
+
+### 💰 Schatzgenerator
+
+`/d3 loot [hg] [anzahl]`
+
+#### Optionen:
+
+- **hg**: 0-4, 6-10. 11-16 oder 17-20 - Der Herausforderungsgrad der Monster bzw. des Horts
+- **anzahl**: Eine Ganzzahl oder das Wort "Hort" - Die Gruppenstärke der Monster oder ein ganzer Hort
+
+
+![Loot Preview](https://user-images.githubusercontent.com/606560/186641268-bdc70a74-1985-46ae-8a0f-c8ae77eef72a.png)
 
 
 ## 🗺 Roadmap
@@ -98,7 +112,8 @@ npm run dev
 - [ ] Hilfe
 - [x] Übersetzung
 - [x] Monster
-- [ ] Schatzgenerator
-- - [ ] Monster-(gruppen)
-- - [ ] Hort
+- [X] Schatzgenerator
+- - [X] Monster-(gruppen)
+- - [X] Hort
+- - [ ] Vault Eingabe?
 - [ ] ...
