@@ -1,16 +1,21 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
-import { EmbedBuilder, Interaction } from "discord.js";
+import { EmbedBuilder, Interaction, MessageFlags } from "discord.js";
+
 import { Dict, DictResult } from "../interfaces/d3/Dict";
 import { Monster, MonsterList } from "../interfaces/d3/Monster";
+import { Treasur } from "../interfaces/d3/Treasur";
+
 import { config } from "../utils/config";
 import { D3DictRequest } from "../utils/d3/DictRequest";
 import { D3MonsterRequest } from "../utils/d3/MonsterRequest";
+import { D3TreasureRequest } from "../utils/d3/TreasurRequest";
 
 import dictSubCommand from "./subs/dict";
 import monsterSubCommand from "./subs/monster";
 import lootSubCommand from "./subs/loot";
-import { D3TreasureRequest } from "../utils/d3/TreasurRequest";
-import { Treasur } from "../interfaces/d3/Treasur";
+import helpSubCommand from "./subs/help";
+
+const fs = require("fs");
 
 /*https://discordjs.guide/popular-topics/embeds.html#embed-limits */
 const MAX_EMBEDS = 10;
@@ -20,14 +25,23 @@ const slashCommand = new SlashCommandBuilder()
   .setDescription("Verwendet die dnddeutsch.de API")
   .addSubcommand(dictSubCommand)
   .addSubcommand(monsterSubCommand)
-  .addSubcommand(lootSubCommand);
-
+  .addSubcommand(lootSubCommand)
+  .addSubcommand(helpSubCommand);
 const execute = async (interaction: Interaction) => {
   if (!interaction.isRepliable() || !interaction.isChatInputCommand()) return;
   let command = interaction.options.getSubcommand();
 
   // ToDo split into separate files
   switch (command) {
+    case "help":
+      fs.readFile("help.txt", "utf8", (err: string, data: string) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        interaction.reply({ content: data, flags: MessageFlags.SuppressEmbeds });
+      });
+      return;
     case "dict":
       const searchtext = interaction.options.getString("suche");
       if (!searchtext) return;
