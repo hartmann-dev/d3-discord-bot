@@ -69,6 +69,12 @@ npm run dev
 
 ## 📝 Befehle
 
+### 🤔 Hilfe
+
+`/d3 help`
+Zeigt die Hile zum Bot an
+
+
 ### 🔎 Übersetzung
 
 `/d3 dict [suche]`
@@ -109,7 +115,7 @@ npm run dev
 
 ## 🗺 Roadmap
 
-- [ ] Hilfe
+- [X] Hilfe
 - [x] Übersetzung
 - [x] Monster
 - [X] Schatzgenerator
