@@ -99,4 +99,6 @@ npm run dev
 - [x] Übersetzung
 - [x] Monster
 - [ ] Schatzgenerator
+- - [ ] Monster-(gruppen)
+- - [ ] Hort
 - [ ] ...
