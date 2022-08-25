@@ -1,4 +1,4 @@
-# D3-DISCORD-BOT
+# D3-DISCORD-BOT - Alpha (v0.3.0)
 
 > **D3** ist ein Discord Bot um die API von **[dnddeutsch.de](https://www.dnddeutsch.de/api/)** zu verwenden.
 >
@@ -74,7 +74,6 @@ npm run dev
 `/d3 help`
 Zeigt die Hile zum Bot an
 
-
 ### 🔎 Übersetzung
 
 `/d3 dict [suche]`
@@ -86,7 +85,6 @@ Zeigt die Hile zum Bot an
 - **sp**: Zaubersprüche berücksichtigen (Standard: True)
 - **it**: Ausrüstung berücksichtigen (Standard: True)
 - **misc**: Sonstiges berücksichtigen (Standard: True)
-
 
 ![Dict Preview](https://user-images.githubusercontent.com/606560/186386167-4d671ad5-44e0-4c8a-8d0a-c83484cf5d45.png)
 
@@ -109,17 +107,15 @@ Zeigt die Hile zum Bot an
 - **hg**: 0-4, 6-10. 11-16 oder 17-20 - Der Herausforderungsgrad der Monster bzw. des Horts
 - **anzahl**: Eine Ganzzahl oder das Wort "Hort" - Die Gruppenstärke der Monster oder ein ganzer Hort
 
-
 ![Loot Preview](https://user-images.githubusercontent.com/606560/186641268-bdc70a74-1985-46ae-8a0f-c8ae77eef72a.png)
-
 
 ## 🗺 Roadmap
 
-- [X] Hilfe
+- [x] Hilfe
 - [x] Übersetzung
 - [x] Monster
-- [X] Schatzgenerator
-- - [X] Monster-(gruppen)
-- - [X] Hort
+- [x] Schatzgenerator
+- - [x] Monster-(gruppen)
+- - [x] Hort
 - - [ ] Vault Eingabe?
 - [ ] ...
