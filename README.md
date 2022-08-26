@@ -6,11 +6,13 @@
 
 ⚠️ **Verwendung auf eigene Gefahr**
 
-## Requirements
+## Anforderungen
 
-- Discord Client ID
+Kurzanleitung um einen Discord Bot im Discord Entwickler Portal anzulegen: https://github.com/hartmann-dev/discord-bot-config
+
+- Discord CLIENT ID
 - Discord Bot Token
-- Node.js 16.11.0 oder höher
+- Node.js 16.11.0 oder höher (neuste Version empfohlen)
 
 ## 🚀 Getting Started
 
@@ -24,7 +26,7 @@ npm install
 
 Kopiere `config.json.example` nach `config.json` und passe die Werte an
 
-⚠️ **Mache niemals deine Client ID und dein Bot Token öffentlich** ⚠️
+⚠️ **Mache niemals dein Bot Token öffentlich** ⚠️
 
 ```json
 {
@@ -55,8 +57,11 @@ Benötigte Rechte
 - Send Messages
 - Manage Messages
 
+Aktueller Wert: 11264
+
 ```
-https://discord.com/api/oauth2/authorize?client_id=CLIENT_ID&permissions=PERMISSIONS&scope=bot%20applications.commands
+// CLIIENT_ID mit eigener CLIENT ID ersetzten
+https://discord.com/api/oauth2/authorize?client_id=CLIENT_ID&permissions=11264&scope=bot%20applications.commands
 ```
 
 ## 🔥 Bot starten
