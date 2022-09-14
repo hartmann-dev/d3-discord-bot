@@ -11,6 +11,7 @@ export type MonsterList = {
   tags: string;
   alignment: string;
   cr: string;
+  cr_human?: string;
   xp: string;
   singleline: string;
 };

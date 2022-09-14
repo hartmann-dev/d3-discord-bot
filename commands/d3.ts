@@ -240,7 +240,7 @@ const getLongMonsterEmbeds = (monsters: MonsterList[]): EmbedBuilder[] => {
         { name: "Gesinnung", value: `${res.alignment}`, inline: true }
       )
       .addFields(
-        { name: "HG", value: `${res.cr}`, inline: true },
+        { name: "HG", value: `${res.cr_human ?? res.cr}`, inline: true },
         { name: "EP", value: `${res.xp}`, inline: true },
         { name: "Schlagworte", value: `${res.tags || "\u200B"}`, inline: true }
       )
