@@ -8,4 +8,5 @@ export interface Config {
   D3_DEFAULT_BACKLINK: string;
   DICT_MAX_RESULTS: number;
   MONSTER_MAX_RESULTS: number;
+  MAX_EMBEDS: number;
 }
